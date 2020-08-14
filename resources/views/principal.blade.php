@@ -7,138 +7,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="img/logo_NotiSchool.png">
     <title>Administracion de notificaciones</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- archvio compilado con laravel Mix -->
     <link href="css/plantilla.css" rel="stylesheet">
+    <link href="css/estilos_cabecera.css" rel="stylesheet">
+    <!-- <link href="js\plantilla.js" rel="stylesheet"> -->
+
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
-    <header class="app-header navbar">
-        <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <ul class="nav navbar-nav d-md-down-none">
-            <li class="nav-item px-3">
-                <a class="nav-link" href="#">Escritorio</a>
-            </li>
-            <li class="nav-item px-3">
-                <a class="nav-link" href="#">Configuraciones</a>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item d-md-down-none">
-                <a class="nav-link" href="#" data-toggle="dropdown">
-                    <i class="icon-bell"></i>
-                    <span class="badge badge-pill badge-danger">5</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <div class="dropdown-header text-center">
-                        <strong>Notificaciones</strong>
-                    </div>
-                    <a class="dropdown-item" href="#">
-                        <i class="fa fa-envelope-o"></i> Correos
-                        <span class="badge badge-success">3</span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="fa fa-tasks"></i> Solicitudes
-                        <span class="badge badge-danger">2</span>
-                    </a>
+
+    <div id="app">
+        
+        <header class="app-header navbar">
+            
+            <a class="navbar-brand" href="#"></a>
+
+            <!-- boton para Submenus de categorias -->
+            <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Configuraciones  -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item px-3 active">
+                    <a class="nav-link" href="#">Escritorio</a>
+                </li>
+                <li class="nav-item px-3 active">
+                    <a class="nav-link" href="#">Configuraciones</a>
+                </li>
+            </ul>
+
+
+            <!-- Menu desplegable -->
+            <ul class="navbar-nav ml-auto">
+                <div id="menu-notificaciones" class="nav-item d-md-down-none px-2">
+                    <input type="checkbox" id="btn-menu-notificaciones" checked>
+                    <label for="btn-menu-notificaciones">
+                        <i class="icon-bell"></i>
+                        <span class="badge badge-pill badge-danger">5</span>
+                        Notificaciones
+                    </label>
+                    <nav id="despliega-menu-notificaciones" class="dropdown-menu-right">
+                        <ul>
+                            <li id="cabecera-item"><strong>Bandeja</strong></li>
+                            <a href="">
+                                <li id="item">
+                                    <i class="fa fa-envelope-o"></i> Correos
+                                    <span class="badge badge-success">3</span>
+                                </li>
+                            </a>
+                            <a href="">
+                                <li id="item">
+                                    <i class="fa fa-tasks"></i> Solicitudes
+                                    <span class="badge badge-danger">2</span>
+                                </li>
+                            </a>
+                        </ul>
+                    </nav>
                 </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img src="img/avatars/usuario.png" class="img-avatar" alt="admin@bootstrapmaster.com">
-                    <span class="d-md-down-none">admin </span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <div class="dropdown-header text-center">
-                        <strong>Cuenta</strong>
-                    </div>
-                    <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a>
-                    <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Cerrar sesión</a>
+             
+
+                <div id="menu-usuario" class="nav-item px-5">
+                    <input type="checkbox" id="btn-menu-usuario" checked>
+                    <label for="btn-menu-usuario">
+                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                        Admin
+                        <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                    </label>
+                    <nav id="despliega-menu-usuario" class="dropdown-menu-right">
+                        <ul>
+                            <li id="cabecera-item"><strong>Cuenta</strong></li>
+                            <a href="">
+                                <li id="item">
+                                    <i class="fa fa-user"></i> Perfil
+                                </li>
+                            </a>
+                            <a href="">
+                                <li id="item">
+                                    <i class="fa fa-lock"></i> Cerrar sesión
+                                </li>
+                            </a>
+                        </ul>
+                    </nav>
                 </div>
-            </li>
-        </ul>
-    </header>
+            </ul>  
 
-    <div class="app-body">
-        <div class="sidebar">
-            <nav class="sidebar-nav">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="main.html"><i class="icon-speedometer"></i> Escritorio</a>
-                    </li>
-                    <li class="nav-title">
-                        Mantenimiento
-                    </li>
-
-                    <li class="nav-item nav-dropdown">
-                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-people"></i> Usuarios</a>
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a class="nav-link" href="i#"><i class="icon-user"></i>Tabla de Usuarios</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item nav-dropdown">
-                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-user-follow"></i>Alumnos</a>
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="icon-list"></i>Tabla de Alumnos</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item nav-dropdown">
-                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-graduation"></i>Carreras</a>
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a class="nav-link" href="i#"><i class="icon-list"></i>Tabla de carreras</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item nav-dropdown">
-                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-envelope"></i>Avisos</a>
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a class="nav-link" href="i#"><i class="icon-list"></i>Tabla de avisos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="icon-note"></i>Crear avisos</a>
-                            </li>
-                        </ul>
-                    </li>
-                    
+        </header>
 
 
-                    <li class="nav-item nav-dropdown">
-                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-pie-chart"></i> Reportes</a>
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a class="nav-link" href="i#"><i class="icon-chart"></i> Reporte de Avisos</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="main.html"><i class="icon-book-open"></i> Ayuda <span class="badge badge-danger">PDF</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="main.html"><i class="icon-info"></i> Acerca de...<span class="badge badge-info">IT</span></a>
-                    </li>
-                </ul>
-            </nav>
-            <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+        <div class="app-body">
+            
+            @include('plantilla.sidebar')
+            <!-- Contenido Principal -->
+            @yield('contenido')
+            <!-- /Fin del contenido principal -->
         </div>
-
-        <!-- Contenido Principal -->
-        @yield('contenido')
-        <!-- /Fin del contenido principal -->
     </div>
-
     
 
     <footer class="app-footer">
@@ -147,8 +113,8 @@
     </footer>
 
     <!-- Archivos js compilados con Laravel mix -->
+    <script src="js/app.js"></script>
     <script src="js/plantilla.js"></script>
-
 </body>
 
 </html>

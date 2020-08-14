@@ -4,11 +4,11 @@ body
     background-size: 400% 400%;
     animation: BackgroundGradient 30s ease infinite;
     height: 500px;
-    /*
-	#f44336, #E91E63, #9C27B0, #673AB7, #3F51B5, #2196F3,#03A9F4, #00BCD4, #009688, #4CAF50, #FFC107, 
+    
+	/*#f44336, #E91E63, #9C27B0, #673AB7, #3F51B5, #2196F3,#03A9F4, #00BCD4, #009688, #4CAF50, #FFC107, 
 	#FF9800, #f44336, #E91E63, #9C27B0, #673AB7, #3F51B5, #2196F3,#03A9F4, #00BCD4, #009688, #4CAF50, #FFC107, 
-	#FF9800
-    */
+	#FF9800*/
+    
 }
     
 /*@keyframes BackgroundGradient {
