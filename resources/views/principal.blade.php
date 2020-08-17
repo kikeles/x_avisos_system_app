@@ -11,8 +11,6 @@
 
     <!-- archvio compilado con laravel Mix -->
     <link href="css/plantilla.css" rel="stylesheet">
-    <link href="css/estilos_cabecera.css" rel="stylesheet">
-    <!-- <link href="js\plantilla.js" rel="stylesheet"> -->
 
 </head>
 

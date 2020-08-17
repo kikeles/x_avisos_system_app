@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('contenido/contenido');
 });
+
+Route::get('/carrera', 'CarreraController@index');
+Route::post('/carrera/registrar', 'CarreraController@registrar');
+Route::put('/carrera/actualizar', 'CarreraController@actualizar');
+Route::put('/carrera/desactivar_matutino', 'CarreraController@desactivar_matutino');
+Route::put('/carrera/activar_matutino', 'CarreraController@activar_matutino');
+Route::put('/carrera/desactivar_vespertino', 'CarreraController@desactivar_vespertino');
+Route::put('/carrera/activar_vespertino', 'CarreraController@activar_vespertino');
+Route::put('/carrera/desactivar_nocturno', 'CarreraController@desactivar_nocturno');
+Route::put('/carrera/activar_nocturno', 'CarreraController@activar_nocturno');
+
