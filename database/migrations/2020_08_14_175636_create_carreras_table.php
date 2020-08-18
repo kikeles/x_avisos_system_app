@@ -14,12 +14,12 @@ class CreateCarrerasTable extends Migration
     public function up()
     {
         Schema::create('carreras', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('nombre');
             $table->integer('tipo_plan');
-            $table->boolean('turno_matutino')->default(0);
-            $table->boolean('turno_vespertino')->default(0);
-            $table->boolean('turno_nocturno')->default(0);
+            $table->boolean('turno_matutino')->default(1);
+            $table->boolean('turno_vespertino')->default(1);
+            $table->boolean('turno_nocturno')->default(1);
             $table->integer('num_grados');
             $table->timestamps();
         });
