@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('carrera', require('./components/Carrera.vue').default);
+Vue.component('matricula', require('./components/Matricula.vue').default);
 
 
 /**

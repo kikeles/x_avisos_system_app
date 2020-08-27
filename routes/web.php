@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('contenido/contenido');
 });
 
+// Carrera
 Route::get('/carrera', 'CarreraController@index');
 Route::post('/carrera/registrar', 'CarreraController@registrar');
 Route::put('/carrera/actualizar', 'CarreraController@actualizar');
@@ -27,3 +28,7 @@ Route::put('/carrera/activar_vespertino', 'CarreraController@activar_vespertino'
 Route::put('/carrera/desactivar_nocturno', 'CarreraController@desactivar_nocturno');
 Route::put('/carrera/activar_nocturno', 'CarreraController@activar_nocturno');
 
+// Matricula
+Route::get('/matricula', 'MatriculaController@index');
+Route::post('/matricula/registrar', 'MatriculaController@registrar');
+Route::put('/matricula/actualizar', 'MatriculaController@actualizar');
